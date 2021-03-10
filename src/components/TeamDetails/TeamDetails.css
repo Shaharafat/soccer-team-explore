@@ -1,0 +1,17 @@
+.teamDetails-container{
+  background:red;
+  border-radius: .4rem;
+}
+
+.details-list{
+  color:white;
+}
+
+.list-icon{
+  display: inline-block;
+  width: 28px;
+}
+
+.team-image{
+  width:100%;
+}

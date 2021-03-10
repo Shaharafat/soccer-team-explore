@@ -1,3 +1,11 @@
-.team-logo{
+.team-logo {
   width: 140px;
+}
+
+.team-button a{
+  color: white;
+}
+
+.team-button a:hover{
+  text-decoration: none;
 }

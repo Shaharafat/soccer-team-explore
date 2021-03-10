@@ -9,7 +9,7 @@ const Teams = ({ teams }) => {
       <Container className="mt-3">
         <Row>
           {teams.map((team) => (
-            <Col xs={12} md={6} lg={4} xl={3} className="mb-3">
+            <Col xs={12} md={6} lg={4} xl={3} className="mb-3" key={team.idTeam}>
               <SingleTeam team={team} />
             </Col>
           ))}

@@ -6,12 +6,30 @@
   background-repeat: no-repeat;
 }
 
+.header-team-image {
+  width: 120px;
+}
+
+.header-background-image{
+  width:100vw;
+  border-radius: 0;
+  object-fit:cover;
+  height: 250px;
+}
+
 .header-text {
   color: white;
+  margin-top: 1.2rem;
+  padding: .5rem 1rem;
+  background: rgba(0,0,0,.5);
 }
 
 @media only screen and (max-width: 600px) {
   .header-bg {
     height: 200px;
+  }
+
+  .header-team-image {
+    width: 90px;
   }
 }

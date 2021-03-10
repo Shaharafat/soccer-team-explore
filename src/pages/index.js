@@ -1,5 +1,7 @@
-import Home from './Home/Home';
+import Details from "./Details/Details";
+import Home from "./Home/Home";
 
 export {
-  Home
-}
+  Home,
+  Details
+};
