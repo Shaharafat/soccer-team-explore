@@ -1,14 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { Header, TeamDetails, SubHeader } from "../../components";
+import { Header, Loader, SubHeader, TeamDetails } from "../../components";
+import { useThemeContext } from "../../context/ThemeContext";
 
-const Details = () => {
+const Details = ({ toggleTheme }) => {
   const { teamId } = useParams();
   const history = useHistory();
 
-  const [teamDetails, setDetails] = useState({});
+  const [teamDetails, setTeamDetails] = useState({});
   const [loading, setLoading] = useState(true);
+  const theme = useThemeContext();
 
   // get team details from api when this page mounts.
   useEffect(() => {
@@ -37,7 +39,7 @@ const Details = () => {
         }
 
         // set teams
-        setDetails(fetchedDetails);
+        setTeamDetails(fetchedDetails);
         // stop loading after fetching data
         setLoading(false);
       } catch (error) {
@@ -47,15 +49,17 @@ const Details = () => {
     // cancel axios request when page unmounts
     return () => {
       cancel();
-    }
+    };
   }, [teamId, history]);
 
   // destructure properties
   const { strTeam, strTeamBadge, strStadiumThumb } = teamDetails;
 
   return (
-    <>
-      {!loading && (
+    <div style={{ background: theme.background }}>
+      {loading ? (
+        <Loader />
+      ) : (
         <>
           <Header
             teamLogo={strTeamBadge}
@@ -63,11 +67,11 @@ const Details = () => {
             isDetailsPage={true}
             banner={strStadiumThumb}
           />
-          <SubHeader showHomeButton={true}/>
+          <SubHeader showHomeButton={true} toggleTheme={toggleTheme} />
           <TeamDetails {...teamDetails} />
         </>
       )}
-    </>
+    </div>
   );
 };
 

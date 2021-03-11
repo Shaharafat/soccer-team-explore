@@ -4,6 +4,7 @@ import TeamDetails from "./TeamDetails/TeamDetails";
 import Teams from "./Teams/Teams";
 import Social from './Social/Social';
 import SubHeader from "./SubHeader/SubHeader";
+import Loader from './Loader/Loader';
 
 export {
   Header,
@@ -12,4 +13,5 @@ export {
   TeamDetails,
   Social,
   SubHeader,
+  Loader
 };

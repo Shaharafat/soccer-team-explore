@@ -1,3 +1,4 @@
+import React from "react";
 import {
   faFlag,
   faFutbol,
@@ -5,10 +6,10 @@ import {
   faVenusMars
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { Social } from "../../components";
 import "./TeamDetails.css";
+import {useThemeContext} from '../../context/ThemeContext'
 
 const TeamDetails = ({
   intFormedYear,
@@ -22,6 +23,9 @@ const TeamDetails = ({
   strWebsite,
   strYoutube,
 }) => {
+  const theme = useThemeContext();
+
+  // it will iterate to generate the team details in list
   const teamDetailsLists = [
     {
       itemLogo: faMapPin,
@@ -40,7 +44,7 @@ const TeamDetails = ({
       itemData: `Gender: ${strGender}`,
     },
   ];
-
+  // This will sent to social section as props
   let socialLinks = {
     strFacebook,
     strYoutube,
@@ -49,12 +53,12 @@ const TeamDetails = ({
     strWebsite,
   };
 
-  console.log(strGender);
   return (
     <Container className="mt-3">
       <Row className="w-100 mx-auto d-flex justify-content-between align-items-center teamDetails-container">
         <Col xs={12} md={6} className=" p-3">
           <ul className="m-0 list-unstyled details-list">
+
             {teamDetailsLists.map(({ itemLogo, itemData }) => (
               <li key={itemData} className="py-2">
                 <span className="list-icon">
@@ -63,14 +67,11 @@ const TeamDetails = ({
                 <span className="">{itemData}</span>
               </li>
             ))}
+
           </ul>
         </Col>
 
-        <Col
-          xs={12}
-          md={6}
-          className="p-3 d-flex justify-content-center justify-content-md-end"
-        >
+        <Col xs={12} md={6} className="p-3 d-flex justify-content-center justify-content-md-end">
           {String(strGender).match(/^male$/i) ? (
             <Image
               src={"https://i.postimg.cc/6qWRXdrW/male.png"}
@@ -86,7 +87,7 @@ const TeamDetails = ({
       </Row>
       <Row className="mt-3">
         <Col>
-          <p>{strDescriptionEN}</p>
+          <p style={{color: theme.color} } className="team-description">{strDescriptionEN}</p>
         </Col>
       </Row>
       {/* Social */}

@@ -14,7 +14,7 @@ const Social = ({
   links: { strFacebook, strTwitter, strInstagram, strWebsite, strYoutube },
 }) => {
   return (
-    <Container>
+    <Container className="mt-3">
       <Row>
         <Col>
           {/* social icon and link lists */}

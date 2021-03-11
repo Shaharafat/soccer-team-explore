@@ -11,7 +11,7 @@ const Header = ({
   return (
     <Container fluid>
       <Row>
-        <Card className="bg-dark text-white ">
+        <Card className="bg-dark text-white w-100">
           {/* if team banner is available, show that
           otherwise show site banner */}
           {
@@ -30,7 +30,7 @@ const Header = ({
             otherwise show site name */}
             {
               <Card.Title className="header-text">
-                {isDetailsPage ? teamName : "Soccer Team Diver"}
+                {isDetailsPage ? teamName : "Soccer Team File"}
               </Card.Title>
             }
           </Card.ImgOverlay>

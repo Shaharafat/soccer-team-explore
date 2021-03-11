@@ -3,13 +3,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useThemeContext } from '../../context/ThemeContext';
 import "./SingleTeam.css";
+
+
 
 const SingleTeam = ({
   team: { idTeam, strTeam, strTeamBadge, strSport, strGender },
 }) => {
+  let theme = useThemeContext();
+  let themeStyles = {
+    background: theme.foreground, color:theme.color
+  }
   return (
-    <Card className="shadow-sm p-1">
+    <Card className="shadow-sm p-1" style={themeStyles}>
       <Card.Body className="d-flex flex-column justify-content-center align-items-center">
         <Card.Img
           variant="top"

@@ -2,10 +2,12 @@
   width: 140px;
 }
 
-.team-button a{
+.team-button {
   color: white;
+  background-color: #5658BC
 }
 
-.team-button a:hover{
+.team-button:hover{
   text-decoration: none;
+  background-color: #4f51af;
 }

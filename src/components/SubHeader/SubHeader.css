@@ -6,5 +6,10 @@
 
 .subheader-button:hover {
   text-decoration: none;
-  background: #4f51af;
+}
+
+.subheader-button:hover,
+.subheader-button:focus,
+.subheader-button:active {
+  background: #5658bc;
 }

@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Header, Teams, SubHeader } from "../../components";
+import { Header, Loader, SubHeader, Teams } from "../../components";
+import { useThemeContext } from "../../context/ThemeContext";
 
-const Home = () => {
+const Home = ({ toggleTheme }) => {
   const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const theme = useThemeContext();
 
   // get team data from api when component mounts.
   useEffect(() => {
@@ -15,7 +18,9 @@ const Home = () => {
         const { teams: fetchedTeams } = res.data;
 
         // set teams
-        setTeams(fetchedTeams)
+        setTeams(fetchedTeams);
+        // stop loading after fetching data
+        setLoading(false);
       } catch (error) {
         console.error(error.message);
       }
@@ -23,11 +28,17 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <Header />
-      <SubHeader />
-      <Teams teams={teams} />
-    </>
+    <div style={{ background: theme.background }} className="Home-wraper">
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Header />
+          <SubHeader toggleTheme={toggleTheme} />
+          <Teams teams={teams} />
+        </>
+      )}
+    </div>
   );
 };
 

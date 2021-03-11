@@ -1,0 +1,12 @@
+.loader-wrapper{
+  min-height: 100vh;
+  max-width: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+@media only screen and (max-width){
+  .loader-wrapper{
+    width: 100%;
+  }
+}

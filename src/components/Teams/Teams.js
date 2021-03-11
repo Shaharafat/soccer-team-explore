@@ -2,8 +2,7 @@ import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SingleTeam from "../SingleTeam/SingleTeam";
 
-const Teams = ({ teams }) => {
-  console.log(teams);
+const Teams = ({ teams,theme }) => {
   return (
     <>
       <Container className="mt-3">
