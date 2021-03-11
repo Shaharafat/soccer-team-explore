@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Header, Teams } from "../../components";
+import { Header, Teams, SubHeader } from "../../components";
 
 const Home = () => {
   const [teams, setTeams] = useState([]);
@@ -25,6 +25,7 @@ const Home = () => {
   return (
     <>
       <Header />
+      <SubHeader />
       <Teams teams={teams} />
     </>
   );

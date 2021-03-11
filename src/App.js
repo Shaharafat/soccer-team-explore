@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Home, Details } from "./pages";
+import { Home, Details, NotFound } from "./pages";
 
 function App() {
   return (
@@ -12,8 +12,11 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/:teamId">
+          <Route path="/details/:teamId">
             <Details />
+          </Route>
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
       </Router>
